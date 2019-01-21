@@ -10,7 +10,7 @@
 //	});
 //$(document).ready(function() {
 //    init();
-    $.getJSON('images.json', function(data) {
+    $.getJSON('../js/images.json', function(data) {
           $.each(data.images, function(i,f) {
                  images+='<div class="main-div-element"><img src="'+ f.path +'"/> <div> '+ f.text+ '</div></div>';
           });
