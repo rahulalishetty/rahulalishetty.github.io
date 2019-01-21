@@ -11,7 +11,7 @@
 //$(document).ready(function() {
 //    init();
     $.getJSON('../js/images.json', function(data) {
-          var images;
+          var images="";
           $.each(data.images, function(i,f) {
                  images+='<div class="main-div-element"><img src="'+ f.path +'"/> <div> '+ f.text+ '</div></div>';
           });
