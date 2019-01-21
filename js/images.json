@@ -1,0 +1,28 @@
+{
+  "images":[
+      {
+        " text" : "some image with some text",
+        "path" : "../pics/home.jpg"
+      },
+      {
+        "text" : "some image with some text",
+        "path" : "../pics/home.jpg"
+      },
+      {
+        "text" : "some image with some text",
+        "path" : "../pics/home.jpg"
+      },
+      {
+        "text" : "some image with some text",
+        "path" : "../pics/home.jpg"
+      },
+      {
+        "text" : "some image with some text",
+        "path" : "../pics/home.jpg"
+      },
+      {
+        "text" : "some image with some text",
+        "path" : "../pics/home.jpg"
+      }
+    ]
+}
