@@ -8,16 +8,15 @@
 //		});
 //		$('.main-div').append(images);
 //	});
-$(document).ready(function() {
+//$(document).ready(function() {
 //    init();
     $.getJSON('images.json', function(data) {
           $.each(data.images, function(i,f) {
                  images+='<div class="main-div-element"><img src="'+ f.path +'"/> <div> '+ f.text+ '</div></div>';
           });
-
           $('.main-div').append(images);
     });
-});
+//});
 
 //function loadJSON(callback) {
 //    console.log("in loadJson");
