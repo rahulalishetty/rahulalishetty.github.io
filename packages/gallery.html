@@ -2,14 +2,14 @@
 <html>
 <head>
 	<title>Home Page</title>
-	<link rel="shortcut icon" href="pics/home.png">
+	<link rel="shortcut icon" href="../pics/home.png">
 	<link rel="stylesheet" type="text/css" href="../css/index.css">
 	<link rel="stylesheet" type="text/css" href="../css/gallery.css">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/addImagesToDom.js"></script>
 </head>
-<body>
+<body onload="displayImages()">
 	<header class="main-header">
 		<div class="home">
 			<a href="../index.html">
@@ -26,13 +26,15 @@
 				<li class="header-list-element">
 					<a href="gallery.html" > My Gallery </a>
 				</li>
+				<li class="header-list-element">
+					<a href="galleryAdmin.html" > My Gallery Admin </a>
+				</li>
 			</ul>
 		</nav>
 	</header>
 	<main>
-		<div class="main-div">
+		<div class="main-div" id="images">
 			
-
 		</div>
 	</main>
 </body>

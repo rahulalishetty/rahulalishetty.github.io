@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    <link rel="shortcut icon" href="../pics/home.png">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/gallery.css">
+    <link rel="stylesheet" type="text/css" href="../css/galleryAdmin.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/addImagesToDom.js"></script>
+    <script type="text/javascript" src="../js/galleryAdmin.js"></script>
+</head>
+<body onload="displayImages()">
+<header class="main-header">
+    <div class="home">
+        <a href="../index.html">
+            Home
+        </a>
+    </div><nav class="header-nav">
+    <ul class="header-list">
+        <li class="header-list-element">
+            <a href="aboutMe.html" > About Me </a>
+        </li>
+        <li class="header-list-element  ">
+            <a href="contact.html" > Contact Me </a>
+        </li>
+        <li class="header-list-element">
+            <a href="gallery.html" > My Gallery </a>
+        </li>
+        <li class="header-list-element">
+            <a href="galleryAdmin.html" > My Gallery Admin </a>
+        </li>
+    </ul>
+</nav>
+</header>
+<main>
+    <div class="main-div" id="images" >
+
+    </div>
+
+    <button class="add-button" id="add-button" >
+        <img class="plus" src="http://pngimages.net/sites/default/files/small-plus-png-image-88078.png">
+    </button>
+
+    <div class="form-popup" id="addForm">
+        <div class="form-content">
+            <span class="close">&times</span>
+
+            <div id="add" class="tabcontent" style="display:block">
+                 <div class="form-div">
+                    <form id="add-form" action="" method="post" onsubmit="submitAddForm(); return false;">
+                        <div class="input-div">
+                            <label class="label">
+                                Image URL:
+                            </label>
+                            
+                            <input type="text" id="addUrl" name="addUrl" placeholder="enter url"  required/>
+                        </div>
+                        <div class="input-div">
+                            <label class="label">
+                                Name:
+                            </label>
+                            <input type="text" id="addName" name="addName" placeholder="enter name"  required/>
+                        </div>
+                        <div class="input-div">
+                            <label class="label">
+                                Information:
+                            </label>
+                            <input type="text" id="addInfo" name="addInfo" placeholder="enter description" required/>
+                        </div>
+                        <div class="input-div">
+                            <label class="label">
+                                Uploaded Date:
+                            </label>
+                            <input type="date" id="addDate" name="addDate" required/>
+                        </div>
+                        <input id="addSubmit" class="submit" name="addSubmit" type="submit" value="submit"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-popup" id="settingsForm">
+        <div class="form-content">
+            <span class="close">&times</span>
+            <div class="tab">
+              <button class="tablinks active" onclick="openForm(event, 'edit')">Edit</button>
+              <button class="tablinks" onclick="openForm(event, 'remove')">Remove</button>
+            </div>
+
+            <div id="edit" class="tabcontent" style="display:block">
+              <div class="form-div">
+                    <form id="edit-form" >
+                        <div class="input-div">
+                            <label class="label">
+                                Image URL:
+                            </label>
+                            
+                            <input type="text" id="editUrl" name="editUrl" placeholder="enter url"  required>
+                        </div>
+                        <div class="input-div">
+                            <label class="label">
+                                Name:
+                            </label>
+                            <input type="text" id="editName" name="editName" placeholder="enter name"  required>
+                        </div>
+                        <div class="input-div">
+                            <label class="label">
+                                Information:
+                            </label>
+                            <input type="text" id="editInfo" name="editInfo" placeholder="enter description" required>
+                        </div>
+                        <div class="input-div">
+                            <label class="label">
+                                Uploaded Date:
+                            </label>
+                            <input type="date" id="editDate" onload="getDate()" name="date" required>
+                        </div>
+                        <input class="submit" id="editSubmit" name="editSubmit" type="submit" value="submit">
+                    </form>
+                </div>
+            </div>
+            <div id="remove" class="tabcontent">
+              <button class="remove" id="removeButton">Remove this image</button>
+            </div>
+        </div>
+    </div>
+    
+</main>
+</body>
+</html>
