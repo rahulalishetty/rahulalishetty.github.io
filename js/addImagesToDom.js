@@ -1,14 +1,24 @@
-var jsonData;
+var images ;
 
-$.ajax({
-    async: false,
-    url: "../js/images.json",
-    success: function(data) {
-        jsonData=data;
-    }
-});
+if (localStorage.getItem('imagesJson') == null) {
+	$.ajax({
+	    async: false,
+	    url: "../js/images.json",
+	    success: function(data) {
+	        images=data.images;
+	    }
+	});
+}else{
+	images = JSON.parse(localStorage.getItem('imagesJson'));
+}
 
-var images = jsonData.images;
+
+storeUpdatedImages();
+
+function storeUpdatedImages(){
+	localStorage.setItem('imagesJson',JSON.stringify(images));	
+}
+
 console.log(images);
 function removeChildren(){
 	var mainDiv=document.getElementById("images");
@@ -38,7 +48,6 @@ function displayImages(){
 
 
 function submitAddForm() {
-
 	    var url = $('#addUrl').val();
 	    var name = $('#addName').val();
 	    var info = $('#addInfo').val();
@@ -67,7 +76,7 @@ function submitEditForm(id) {
 	    var name = $('#editName').val();
 	    var info = $('#editInfo').val();
 	    var uploadedDate = $('#editDate').val();
-	    console.log(url+" "+uploadedDate);
+	    console.log("in submitedit id:", id, url+" "+uploadedDate);
 	    $(".error").remove();
 	    $(".valid").remove();
 
@@ -82,8 +91,8 @@ function submitEditForm(id) {
 	    	updateImage(id, url, name, info, uploadedDate);
 	      $('#editSubmit').after('<span class="valid">changes updated</span>');
 	    }
-	    event.preventDefault();
 }
+
 
 function addDefaultValues(id){
 	images.forEach(function (image){
@@ -115,10 +124,12 @@ function addNewImage(url, name, info, uploadedDate){
 		uploadedDate:uploadedDate
 	}
 	images.push(newImage); 
+	storeUpdatedImages();
 	displayImages();
 }
 
 function updateImage(id, url, name, info, uploadedDate){
+	console.log("in update:", id, url, name)
 	images.forEach(function (image){
 		if(image.id==id){
 			image.url=url;
@@ -127,6 +138,7 @@ function updateImage(id, url, name, info, uploadedDate){
 			image.uploadedDate=uploadedDate;
 		}
 	});
+	storeUpdatedImages();
 	displayImages();
 }
 
@@ -139,5 +151,6 @@ function removeImage(id){
 			return;
 		}
 	});
+	storeUpdatedImages();
 	displayImages();
 }

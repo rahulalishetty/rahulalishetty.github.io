@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', init, false);
+var id=0;
 function init(){
 	console.log("onload");
 	var addPopUp= document.getElementById("addForm");
@@ -21,10 +22,18 @@ function init(){
 		if(event.target == addPopUp)
 			document.getElementById("addForm").style.display = "none";
 	}
+
+	$('#edit-form').submit(function () {
+		console.log("submit requested:", id);
+		submitEditForm(id);
+		return false;
+	});
 }
 
 
 function openSettings(id){
+	this.id=id;
+	console.log("in settings: ", id);
 	document.getElementById("settingsForm").style.display = "block";
 	addDefaultValues(id);
 	var settingsPopUp= document.getElementById("settingsForm");
@@ -45,13 +54,9 @@ function openSettings(id){
 	removeButton.onclick=function() {
 	    removeImage(id);
 	}
-
-	$('#edit-form').submit(function () {
-		 submitEditForm(id);
-		 return false;
-	});
-
 }
+
+
 
 function openForm(event, tabId) {
   var i, tabcontent, tablinks;
