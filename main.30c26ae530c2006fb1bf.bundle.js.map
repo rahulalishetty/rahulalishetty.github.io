@@ -1,0 +1,1 @@
+{"version":3,"file":"main.30c26ae530c2006fb1bf.bundle.js","sources":["webpack:///./src/defaultTheme.js"],"sourcesContent":["export const defaultTheme = {\n  primary: \"#1991EB\",\n  secondary: \"#09C199\"\n};\n"],"mappings":"AAAA","sourceRoot":""}
